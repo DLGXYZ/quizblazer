@@ -107,7 +107,7 @@ h3 { font-size: 1.2rem; }
 .plan { display: flex; flex-direction: column; }
 .plan.featured { border: 2px solid var(--flame); transform: translateY(-8px); }
 .plan .badge { align-self: flex-start; background: var(--flame); color: #1a0f05; font-weight: 700; font-size: 0.75rem; padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; }
-.card .price { font-size: 2.6rem; font-weight: 800; margin: 8px 0 0; color: var(--text); }
+.card .price { font-size: 2.4rem; font-weight: 800; margin: 8px 0 0; color: var(--text); }
 .price small { font-size: 1rem; color: var(--muted); font-weight: 500; }
 .plan ul { list-style: none; padding: 0; margin: 20px 0 28px; color: var(--muted); flex: 1; }
 .plan li { padding: 6px 0 6px 26px; position: relative; }
