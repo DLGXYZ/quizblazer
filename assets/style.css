@@ -205,3 +205,4 @@ body::after {
 }
 .footer-logo { height: 34px; width: auto; opacity: 0.9; margin-bottom: 6px; }
 @media (max-width: 860px) { .logo img { height: 38px; } }
+@media (max-width: 480px) { .hero h1 { font-size: clamp(1.6rem, 8.6vw, 2.2rem); } }
