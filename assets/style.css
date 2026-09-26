@@ -205,3 +205,4 @@ body::after {
 }
 .footer-logo { height: 34px; width: auto; opacity: 0.9; margin-bottom: 6px; }
 @media (max-width: 860px) { .logo img { height: 38px; } }
+h1 .line { display: block; }
