@@ -7,14 +7,15 @@
   <meta name="description" content="QuizBlazer brings the BlazerBox trivia host to bars, pubs, groups and events. Run a fully produced trivia night from one laptop and a TV.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/site.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <nav class="container nav" aria-label="Main">
-      <a class="logo" href="index.html">Quiz<span>Blazer</span></a>
+      <a class="logo" href="index.html"><img src="assets/logo-warm.png" alt="QuizBlazer" width="1142" height="451"></a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html" aria-current="page">Home</a></li>
@@ -23,6 +24,7 @@
         <li><a class="btn btn-primary" href="pricing.html#get-started">Get started</a></li>
       </ul>
     </nav>
+    <div class="retro-stripe"></div>
   </header>
 
   <main>
@@ -37,8 +39,12 @@
             <a class="btn btn-ghost" href="features.html">See how it works</a>
           </div>
         </div>
-        <div class="hero-visual" aria-label="App preview placeholder">
-          <div><strong>BlazerBox</strong>Photo of BlazerBox on a pub TV goes here</div>
+        <div class="crt" aria-hidden="true">
+          <div class="crt-screen">
+            <span class="osd osd-left">&#9654; PLAY</span>
+            <span class="osd osd-right">CH 03</span>
+            <img src="assets/logo-warm.png" alt="" width="1142" height="451">
+          </div>
         </div>
       </div>
     </section>
@@ -99,7 +105,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span>&copy; 2026 QuizBlazer. Powered by the BlazerBox app.</span>
+      <span><img class="footer-logo" src="assets/logo-cream.png" alt="QuizBlazer" width="1142" height="451"><br>&copy; 2026 QuizBlazer. Powered by the BlazerBox app.</span>
       <span>
         <a href="index.html">Home</a>
         <a href="features.html">Features</a>
