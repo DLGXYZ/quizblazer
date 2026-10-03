@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Schedule editor | QuizBlazer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/style.css?v=7">
+  <link rel="stylesheet" href="assets/admin.css?v=1">
+  <script src="assets/admin.js?v=1" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="logo" href="index.html"><img src="assets/logo-warm.png" alt="QuizBlazer" width="1142" height="451"></a>
+      <ul class="nav-links admin-nav">
+        <li><a href="events.html" target="_blank" rel="noopener">View Events page</a></li>
+      </ul>
+    </nav>
+    <div class="retro-stripe"></div>
+  </header>
+
+  <main>
+    <section class="admin">
+      <div class="container admin-wrap">
+        <p class="eyebrow">Control room</p>
+        <h1>Schedule editor</h1>
+        <p class="lead">Add, change or remove games, then press Publish. The Events page and the CrowPanel display both update about a minute later.</p>
+
+        <!-- Step 1: connect -->
+        <div class="card admin-panel" id="connect-panel">
+          <div class="panel-head"><span>Station key</span><span id="connect-state" class="lamp">Not connected</span></div>
+          <form id="connect-form" class="admin-form">
+            <label for="token">Paste your GitHub key
+              <input type="password" id="token" autocomplete="off" spellcheck="false" placeholder="github_pat_..." required>
+            </label>
+            <label class="check"><input type="checkbox" id="remember" checked> Remember this key on this device</label>
+            <div class="row">
+              <button type="submit" class="btn btn-primary">Connect</button>
+            </div>
+            <p class="help">The key lets this page save the schedule for you. It stays in this browser only. See the README for how to make one.</p>
+          </form>
+          <div id="connected" hidden>
+            <p class="help">Connected. Changes you publish are saved to the website.</p>
+            <div class="row"><button type="button" class="btn btn-ghost" id="disconnect">Forget key</button></div>
+          </div>
+        </div>
+
+        <!-- Step 2: games -->
+        <div class="card admin-panel">
+          <div class="panel-head"><span>Games</span><span id="count">0</span></div>
+          <ol class="game-list" id="game-list"><li class="game-empty">Loading the schedule&hellip;</li></ol>
+          <div class="row"><button type="button" class="btn btn-ghost" id="add-game">Add a game</button></div>
+        </div>
+
+        <!-- Game form (shown when adding or editing) -->
+        <div class="card admin-panel" id="editor" hidden>
+          <div class="panel-head"><span id="editor-title">New game</span></div>
+          <form id="game-form" class="admin-form" novalidate>
+            <div class="field-grid">
+              <label class="span-2">Game name
+                <input type="text" name="title" required maxlength="120" placeholder="Night of the Living Trivia">
+              </label>
+              <label>Date
+                <input type="date" name="date" required>
+              </label>
+              <label>Start time
+                <input type="time" name="time" required step="300">
+              </label>
+              <label class="span-2">Venue
+                <input type="text" name="venue" required maxlength="120" placeholder="Little Lake Brewing">
+              </label>
+              <label>Town or city
+                <input type="text" name="city" maxlength="80" placeholder="Lakeville">
+              </label>
+              <label>State
+                <input type="text" name="state" maxlength="2" placeholder="NY" class="short">
+              </label>
+              <label class="span-2">Note <span class="opt">(optional: theme, prizes, specials)</span>
+                <textarea name="note" rows="2" maxlength="200" placeholder="Free pint to the 1st 50 guests"></textarea>
+              </label>
+            </div>
+            <p class="form-error" id="game-error" hidden></p>
+            <div class="row">
+              <button type="submit" class="btn btn-primary">Keep this game</button>
+              <button type="button" class="btn btn-ghost" id="cancel-edit">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 3: publish -->
+        <div class="card admin-panel publish">
+          <div class="panel-head"><span>Publish</span><span id="dirty" class="lamp">No changes</span></div>
+          <p class="help" id="publish-msg">Changes stay on this page until you publish them.</p>
+          <div class="row">
+            <button type="button" class="btn btn-primary" id="publish" disabled>Publish to website</button>
+            <button type="button" class="btn btn-ghost" id="download">Download file</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

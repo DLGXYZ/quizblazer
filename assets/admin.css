@@ -1,0 +1,75 @@
+/* Schedule editor (admin.html) */
+.admin { padding-top: 48px; }
+.admin-wrap { max-width: 860px; }
+.admin-wrap > .lead { color: var(--muted); margin: 0 0 32px; }
+.admin-nav a { font-size: 0.95rem; }
+
+.admin-panel { padding: 0; margin-bottom: 28px; overflow: hidden; }
+.admin-panel > .row, .admin-panel > .help, .admin-panel > #connected, .admin-form { padding: 22px; }
+.admin-panel > .row { padding-top: 0; }
+.panel-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 10px 22px; background: #0d0907; border-bottom: 1px solid var(--line);
+  font-family: "VT323", ui-monospace, monospace; font-size: 1.35rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); text-shadow: 0 0 8px rgba(46, 196, 182, 0.55);
+}
+.lamp { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-shadow: none; font-size: 1.1rem; }
+.lamp::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #3a1a0c; border: 1px solid #0d0907; }
+.lamp.on { color: var(--flame-2); }
+.lamp.on::before { background: #7dff5a; box-shadow: 0 0 6px #7dff5a; }
+#dirty.on::before { background: var(--flame); box-shadow: 0 0 6px var(--flame); }
+
+.admin-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 0.95rem; margin-bottom: 14px; }
+.admin-form .field-grid label { margin-bottom: 0; }
+.admin-form label.check { flex-direction: row; align-items: center; gap: 10px; font-weight: 400; color: var(--muted); }
+.admin-form input[type="text"], .admin-form input[type="password"], .admin-form input[type="date"],
+.admin-form input[type="time"], .admin-form textarea {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--text);
+  background: #0d0907; border: 1px solid #4a3a2c; border-radius: 4px; padding: 11px 14px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.7); color-scheme: dark;
+}
+.admin-form input.short { max-width: 90px; text-transform: uppercase; }
+.admin-form textarea { resize: vertical; }
+.admin-form input::placeholder, .admin-form textarea::placeholder { color: #7d6b55; }
+.admin-form input:focus, .admin-form textarea:focus { outline: none; border-color: var(--flame-2); box-shadow: inset 0 2px 6px rgba(0,0,0,0.7), 0 0 0 2px rgba(255, 176, 46, 0.3); }
+.admin-form .form-error { margin-top: 16px; }
+.admin-form .row { margin-top: 20px; }
+.admin .help { color: var(--muted); font-size: 0.95rem; margin: 0; }
+.admin-form .help { margin-top: 14px; }
+
+.row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.admin .btn { cursor: pointer; font-family: inherit; }
+.admin .btn:disabled { filter: grayscale(0.8) brightness(0.7); cursor: not-allowed; }
+.admin .btn-primary:disabled::before { background: #3a1a0c; box-shadow: none; }
+#connected .row { margin-top: 14px; }
+.panel-head span { white-space: nowrap; }
+.btn-small { padding: 8px 14px 7px; font-size: 0.75rem; }
+.btn-danger { color: #7a1a0c; }
+
+/* Game list */
+.game-list { list-style: none; margin: 0; padding: 0; }
+.game { display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; padding: 20px 22px; border-bottom: 1px solid var(--line); }
+.game.past { opacity: 0.55; }
+.game-empty { padding: 32px 22px; text-align: center; color: var(--muted); font-family: "VT323", ui-monospace, monospace; font-size: 1.35rem; border-bottom: 1px solid var(--line); }
+.game-date {
+  width: 64px; padding: 6px 0 8px; border-radius: 6px; text-align: center;
+  background: linear-gradient(180deg, #2e2622 0 50%, #221b18 50% 100%); border: 1px solid #0d0907;
+}
+.game-month { display: block; font-family: "VT323", ui-monospace, monospace; font-size: 1.1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--flame-2); line-height: 1.2; }
+.game-day { display: block; font-weight: 800; font-size: 1.9rem; line-height: 1; }
+.game-title { font-family: "Abril Fatface", Georgia, serif; font-weight: 400; font-size: 1.3rem; margin: 0 0 4px; }
+.game-when { margin: 0; color: var(--flame-2); font-weight: 600; font-size: 0.95rem; }
+.game-where, .game-note { margin: 2px 0 0; color: var(--muted); font-size: 0.95rem; }
+.game-note { font-style: italic; }
+.game-actions { display: flex; flex-direction: column; gap: 10px; }
+.game-list + .row { padding-top: 22px; }
+
+@media (max-width: 640px) {
+  .admin { padding-top: 32px; }
+  .game { grid-template-columns: auto 1fr; gap: 14px; padding: 18px 16px; }
+  .game-actions { grid-column: 1 / -1; flex-direction: row; }
+  .admin-panel > .row, .admin-panel > .help, .admin-panel > #connected, .admin-form { padding: 18px 16px; }
+  .panel-head { padding: 10px 16px; font-size: 1.15rem; }
+  .lamp { font-size: 1rem; letter-spacing: 0.04em; }
+  .admin-form .field-grid { grid-template-columns: 1fr; }
+}
