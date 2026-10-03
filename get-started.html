@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get Started | QuizBlazer</title>
+  <meta name="description" content="Is QuizBlazer right for you? Answer a few quick questions and we'll follow up personally to get your venue set up.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/style.css?v=6">
+  <script src="assets/site.js?v=3" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="logo" href="index.html"><img src="assets/logo-warm.png" alt="QuizBlazer" width="1142" height="451"></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a class="btn btn-primary" href="get-started.html" aria-current="page">Get started</a></li>
+      </ul>
+    </nav>
+    <div class="retro-stripe"></div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom:40px">
+      <div class="container center">
+        <p class="eyebrow">Get started</p>
+        <h1>Is QuizBlazer right for you?</h1>
+        <p class="lead">QuizBlazer works best when a venue is ready to make it their own. A few quick questions help us make sure it's the right fit, and help us get you set up right the first time.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:20px">
+      <div class="container" style="max-width:780px">
+        <form class="fit-form card" id="fit-form" action="https://formsubmit.co/quizblazer@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New QuizBlazer fit questionnaire">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <fieldset>
+            <legend><span class="q-num">01</span>About you</legend>
+            <div class="field-grid">
+              <label>Your name <input type="text" name="Name" autocomplete="name" required></label>
+              <label>Venue or group name <input type="text" name="Venue" autocomplete="organization" required></label>
+              <label>Email <input type="email" name="email" autocomplete="email" required></label>
+              <label><span>Phone <span class="opt">(optional)</span></span> <input type="tel" name="Phone" autocomplete="tel"></label>
+              <label class="span-2">City / town <input type="text" name="City" autocomplete="address-level2"></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="q-num">02</span>What kind of venue is this for?</legend>
+            <p class="help">Helps us tailor everything that follows.</p>
+            <div class="choices">
+              <label><input type="radio" name="Venue type" value="Bar / Pub" required> Bar / Pub</label>
+              <label><input type="radio" name="Venue type" value="Brewery / Taproom"> Brewery / Taproom</label>
+              <label><input type="radio" name="Venue type" value="Restaurant"> Restaurant</label>
+              <label><input type="radio" name="Venue type" value="Theater / Event Space"> Theater / Event Space</label>
+              <label><input type="radio" name="Venue type" value="Church / Community Group"> Church / Community Group</label>
+              <label><input type="radio" name="Venue type" value="School / Rec Center"> School / Rec Center</label>
+              <label><input type="radio" name="Venue type" value="Private Party / One-Time Event"> Private Party / One-Time Event</label>
+              <label><input type="radio" name="Venue type" value="Other" data-other="venue-other"> Other</label>
+            </div>
+            <input type="text" name="Venue type (other)" id="venue-other" class="other-input" placeholder="Tell us what kind" hidden>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="q-num">03</span>Who would actually run QuizBlazer on game night?</legend>
+            <p class="help">This is the person who presses start and keeps score. They don't need experience, just a bit of presence and willingness to engage with the crowd.</p>
+            <div class="choices">
+              <label><input type="radio" name="Who runs it" value="Me, I'll be hands-on" required> Me, I'll be hands-on</label>
+              <label><input type="radio" name="Who runs it" value="A specific staff member" data-other="host-name"> A specific staff member</label>
+              <label><input type="radio" name="Who runs it" value="Not sure yet"> Not sure yet</label>
+            </div>
+            <input type="text" name="Host name" id="host-name" class="other-input" placeholder="Who is it? (name or role)" hidden>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="q-num">04</span>What night are you thinking of running it?</legend>
+            <label class="sr-only" for="timing">Timing</label>
+            <input type="text" name="Timing" id="timing" placeholder="e.g. Tuesdays, slow night, or a one-time fundraiser in November">
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="q-num">05</span>Do you already have a TV or screen, with sound, set up where you'd run this?</legend>
+            <p class="help">No wrong answer here. We confirm everything works together before game night either way.</p>
+            <div class="choices">
+              <label><input type="radio" name="Screen and sound" value="Yes, and it's ready to go" required> Yes, and it's ready to go</label>
+              <label><input type="radio" name="Screen and sound" value="Yes, but we haven't tested it"> Yes, but we haven't tested it</label>
+              <label><input type="radio" name="Screen and sound" value="No, we'd need to figure that out"> No, we'd need to figure that out</label>
+              <label><input type="radio" name="Screen and sound" value="Not sure"> Not sure</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="q-num">06</span>What's the main reason you're interested in trivia night?</legend>
+            <div class="choices">
+              <label><input type="radio" name="Main reason" value="Fill a slow night / drive traffic"> Fill a slow night / drive traffic</label>
+              <label><input type="radio" name="Main reason" value="Fundraiser or one-time event"> Fundraiser or one-time event</label>
+              <label><input type="radio" name="Main reason" value="Just sounds fun for our regulars / community"> Just sounds fun for our regulars / community</label>
+              <label><input type="radio" name="Main reason" value="Other" data-other="reason-other"> Other</label>
+            </div>
+            <input type="text" name="Main reason (other)" id="reason-other" class="other-input" placeholder="Tell us more" hidden>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="q-num">07</span>Which option are you most interested in?</legend>
+            <div class="choices">
+              <label><input type="radio" name="Interested in" value="Free first game"> Free first game</label>
+              <label><input type="radio" name="Interested in" value="A la carte games"> A la carte games</label>
+              <label><input type="radio" name="Interested in" value="Bundle (buy 9, get the 10th free)"> Bundle (buy 9, get the 10th free)</label>
+              <label><input type="radio" name="Interested in" value="Extras (personalized games, score sheets, promo)"> Extras</label>
+              <label><input type="radio" name="Interested in" value="Not sure yet"> Not sure yet</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="q-num">08</span>Anything else we should know? <span class="opt">(optional)</span></legend>
+            <label class="sr-only" for="notes">Anything else</label>
+            <textarea name="Anything else" id="notes" rows="4"></textarea>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">See if we're a fit</button>
+            <p class="form-error" id="form-error" role="alert" hidden>Something went wrong sending the form. Please try again, or email us at <a href="mailto:quizblazer@gmail.com">quizblazer@gmail.com</a>.</p>
+          </div>
+        </form>
+
+        <div class="card form-thanks" id="form-thanks" tabindex="-1" hidden>
+          <p class="eyebrow">Transmission received</p>
+          <h2>Thanks, got it!</h2>
+          <p>We'll take a look and follow up personally within a couple of days to talk through next steps. If it sounds like a good fit, we'll set up a quick call to walk through setup and make sure game night goes off without a hitch.</p>
+        </div>
+
+        <p class="note center">Prefer email? Write to <a href="mailto:quizblazer@gmail.com">quizblazer@gmail.com</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span><img class="footer-logo" src="assets/logo-cream.png" alt="QuizBlazer" width="1142" height="451"><br>&copy; 2026 QuizBlazer. Powered by the BlazerBox app.</span>
+      <span>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="get-started.html">Get started</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
