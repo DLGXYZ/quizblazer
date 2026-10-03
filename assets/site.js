@@ -63,3 +63,51 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+// Screenshots: tap or click to see them full size
+document.addEventListener("DOMContentLoaded", function () {
+  var shots = document.querySelectorAll(".feature-media.has-shot img");
+  if (!shots.length) return;
+
+  var box = document.createElement("div");
+  box.className = "lightbox";
+  box.hidden = true;
+  box.setAttribute("role", "dialog");
+  box.setAttribute("aria-modal", "true");
+  box.setAttribute("aria-label", "Screenshot, full size");
+  box.innerHTML = '<button type="button" class="lightbox-close">CLOSE</button><img alt=""><p class="lightbox-caption"></p>';
+  document.body.appendChild(box);
+  var big = box.querySelector("img");
+  var caption = box.querySelector(".lightbox-caption");
+  var close = box.querySelector(".lightbox-close");
+  var opener = null;
+
+  function show(img) {
+    opener = img;
+    big.src = img.currentSrc || img.src;
+    big.alt = img.alt;
+    caption.textContent = img.alt;
+    box.hidden = false;
+    document.body.classList.add("lightbox-open");
+    close.focus();
+  }
+  function hide() {
+    box.hidden = true;
+    document.body.classList.remove("lightbox-open");
+    if (opener) opener.focus();
+  }
+
+  shots.forEach(function (img) {
+    img.tabIndex = 0;
+    img.setAttribute("role", "button");
+    img.setAttribute("aria-label", img.alt + " (view full size)");
+    img.addEventListener("click", function () { show(img); });
+    img.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(img); }
+    });
+  });
+  box.addEventListener("click", hide);
+  document.addEventListener("keydown", function (e) {
+    if (!box.hidden && e.key === "Escape") hide();
+  });
+});
