@@ -10,6 +10,27 @@ Plain static site (HTML + CSS, no build step), hosted on GitHub Pages from the `
 
 ## Editing the event schedule
 
+The easy way is the schedule editor at `admin.html` (https://dlgxyz.github.io/quizblazer/admin.html, later
+https://quizblazer.com/admin.html). It is a form, so the file always comes out valid. It is not linked from the site
+and is hidden from search engines; only someone with your GitHub key can save.
+
+One-time setup (make a GitHub key):
+
+1. On github.com, click your profile picture (top right), then **Settings**.
+2. In the left menu, scroll to the bottom and click **Developer settings**.
+3. Click **Personal access tokens**, then **Fine-grained tokens**, then **Generate new token**.
+4. Name it `QuizBlazer schedule`. Set **Expiration** to 1 year (or whatever you like).
+5. Under **Repository access**, pick **Only select repositories** and choose `DLGXYZ/quizblazer`.
+6. Under **Permissions**, click **Add permissions**, choose **Contents**, and set it to **Read and write**.
+7. Click **Generate token** and copy the key (it starts with `github_pat_`). GitHub only shows it once.
+8. Open the editor page, paste the key, leave "Remember this key on this device" ticked, and press **Connect**.
+
+Using it: **Add a game** or **Edit**/**Delete** a game, press **Keep this game**, then **Publish to website**.
+The Events page and the CrowPanel pick up the change about a minute later. Past games stay in the list (faded)
+until you delete them; the Events page already hides them.
+
+Editing the file by hand still works, as described below.
+
 Every game on the Events page comes from `events.json`. The CrowPanel venue display reads the same file from
 `https://dlgxyz.github.io/quizblazer/events.json` (later `https://quizblazer.com/events.json`), so this is the only place to edit.
 
