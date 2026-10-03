@@ -26,7 +26,7 @@ a { color: var(--flame-2); }
 
 /* Header */
 .site-header {
-  position: sticky; top: 0; z-index: 10;
+  position: sticky; top: 0; z-index: 102;
   background: rgba(18, 13, 10, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
@@ -162,7 +162,25 @@ h3 { font-size: 1.2rem; }
 .feature-row ul { color: var(--muted); padding-left: 20px; }
 .feature-media.has-shot { aspect-ratio: 16 / 9; padding: 0; border-radius: 18px / 14px; background: #0a0d16; box-shadow: inset 0 0 40px rgba(0,0,0,0.9), 0 0 30px rgba(140, 60, 255, 0.12); }
 .feature-media.has-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.feature-media.has-shot::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; border-radius: inherit; box-shadow: inset 0 0 30px rgba(0,0,0,0.75); }
+/* Screenshots show exactly what the room sees: no scanlines or vignette, and they sit above the page-wide scanlines */
+.feature-media.has-shot { z-index: 101; cursor: zoom-in; }
+.feature-media.has-shot::after { content: none; }
+.feature-media.has-shot img:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+
+/* Tap a screenshot to see it full size */
+.lightbox { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 16px; background: rgba(8, 6, 4, 0.94); cursor: zoom-out; }
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 100%; max-height: calc(100vh - 120px); width: auto; height: auto; border: 3px solid #4a2f1c; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+.lightbox-caption { font-family: "VT323", monospace; font-size: 1.3rem; color: var(--accent); text-align: center; margin: 0; }
+.lightbox-close { position: absolute; top: 12px; right: 12px; font-family: "VT323", monospace; font-size: 1.3rem; color: var(--text); background: linear-gradient(#3a2a1e, #22180f); border: 1px solid #5a4030; border-radius: 3px; padding: 6px 14px; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 0 #000; }
+.lightbox-close:focus-visible { outline: 3px solid var(--accent); }
+body.lightbox-open { overflow: hidden; }
+/* On a phone held upright, turn the widescreen shot sideways so it fills the screen */
+@media (orientation: portrait) and (max-width: 700px) {
+  .lightbox { overflow: hidden; }
+  .lightbox img { max-width: none; max-height: none; width: min(calc(100vh - 110px), calc((100vw - 24px) * 16 / 9)); transform: rotate(90deg); flex-shrink: 0; }
+  .lightbox-caption { display: none; }
+}
 .screen-grid { text-align: left; }
 .screen-shot { margin: 0; }
 .screen-shot .feature-media { border-width: 8px; }
